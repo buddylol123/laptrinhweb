@@ -60,12 +60,13 @@ include 'connect/connect.php';
                                 </div>
                             </div>
                             <div class="col-lg-5 mx-auto mt-4 mt-lg-0">
-                                <form action="#">
+                                <form action="index.php?quanly=search" method="POST">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="search" class="form-control border-dark" placeholder="Tìm kiếm" required>
+                                        
+                                            <input type="search" class="form-control border-dark" name="search_button" placeholder="Tìm kiếm" required>
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-dark"><i class="fas fa-search"></i></button>
+                                                <button class="btn btn-outline-dark" name="search_submit" type="submit"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </div>

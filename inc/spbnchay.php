@@ -3,24 +3,24 @@
                         <div class="row">
                             <div class="col-12 py-3">
                               <div class="row">
-                              
-                                    <?php  $sql_cate = mysqli_query($mysqli,'SELECT * FROM loaisanpham ORDER BY maloai DESC');
-                                    while($row_cate =mysqli_fetch_array($sql_cate)) {
-                                        $id_cat =$row_cate['maloai'];
+                              <div class="col-12 text-center text-uppercase">
+                                  <h2 >San Pham moi nhat</h2>
+                              </div>
+
+
+                                
                                     
-                                        ?>
-                                            <div class="col-12 text-center text-uppercase">
-                                        <h2> <?php echo $row_cate['tenloai']; ?></h2>
                                     
-                                </div>
+                                        
+                                    
                                   
-                                <div class=" row">
+                                <div class=" row col-12">
                                     
                                   <?php
-                                  $sql_product = mysqli_query($mysqli,'SELECT * FROM sanpham  ORDER BY masp DESC ');
+                                  $sql_product = mysqli_query($mysqli,"SELECT * FROM sanpham  WHERE ngaynhap BETWEEN '2020/12/25' AND '2020/12/26' LIMIT 4");
                                   while ($row_sp = mysqli_fetch_array($sql_product))
                                    {
-                                        if($row_sp['maloai']==$id_cat){
+                                    
                                    
 
                                     
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                    <?php }
-                                } ?>
+                                 ?>
                                     <!-- Product -->
                                     </div>
                                     <!-- Product -->
@@ -69,7 +69,7 @@
                                 </div>
                                    
                             </div>
-                                    <?php }?>
+                                
                         </div>
                                     
                     </div>

@@ -21,6 +21,10 @@ if($tam == 'danhmuc')
 {
     include 'inc/chitietsp.php';
 }
+elseif ($tam == 'search')
+{
+    include 'inc/timkiem.php';
+}
 elseif  ($tam == 'giohang')
 {   
     include 'cart.php';
@@ -34,9 +38,15 @@ elseif($tam == 'xoa')
     include 'xoa.php';
     include 'inc/giohang.php';
 }
+elseif($tam == 'thanhtoan')
+{
+    include 'inc/thanhtoan.php';
+}
 
 else
-{
+
+{   include 'inc/spbnchay.php';
+    include 'inc/sanphammuanhieunhat.php';   
     include 'inc/home.php';
 }
 

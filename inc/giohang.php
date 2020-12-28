@@ -80,7 +80,7 @@ $tam =isset($_SESSION['cart'])?$_SESSION['cart']:[];
                                     </div>
                                     <div class="col-12 text-right">
                                         
-                                        <a href="#" class="btn btn-outline-success">Thanh toán</a>
+                                        <a href="?quanly=thanhtoan" class="btn btn-outline-success">Thanh toán</a>
                                     </div>
                                 </form>
                             </div>

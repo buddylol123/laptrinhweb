@@ -12,6 +12,7 @@
      $mota =$_POST['des'];
      $danhmuc = $_POST['danhmuc'];
      $path = '../images/';
+     $date =$_POST['trip-start'];
      $hinh_tmp = $_FILES['hinh']['tmp_name'];
      
      $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -23,7 +24,7 @@
      }
      else
      {
-        $sql_insert = mysqli_query($mysqli,"INSERT INTO sanpham(masp,tensp,gia,hinh,mota,maloai) VALUES('$masp','$tensp','$giasp','$hinh','$mota','$danhmuc')");
+        $sql_insert = mysqli_query($mysqli,"INSERT INTO sanpham(masp,tensp,gia,hinh,mota,maloai,ngaynhap) VALUES('$masp','$tensp','$giasp','$hinh','$mota','$danhmuc','$date')");
 
      move_uploaded_file($hinh_tmp,$path .$hinh);
      echo "thanh cong";
@@ -203,6 +204,10 @@ if(isset($_GET['xoa']))
                         <input type="text" class="form-control" name="giasp" placeholder="Giá"><br>
                         <label>Mô tả</label>
                         <textarea type="text" class="form-control" name="des" placeholder="Mô tả"></textarea><br>
+                        <label for="start">Start date:</label>
+
+<input type="date" id="start" name="trip-start" value="<?php $time= time(); echo(date("Y-m-d",$time)); ?>" min="2020-1-1" max="2022-1-1"><br>
+                        
                         <label>Danh mục</label>
                         <?php 
                         $sql_danhmuc = mysqli_query($mysqli,"SELECT * FROM loaisanpham ORDER BY maloai DESC");

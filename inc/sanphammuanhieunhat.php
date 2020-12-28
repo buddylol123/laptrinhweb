@@ -3,24 +3,29 @@
                         <div class="row">
                             <div class="col-12 py-3">
                               <div class="row">
-                              
-                                    <?php  $sql_cate = mysqli_query($mysqli,'SELECT * FROM loaisanpham ORDER BY maloai DESC');
-                                    while($row_cate =mysqli_fetch_array($sql_cate)) {
-                                        $id_cat =$row_cate['maloai'];
+                              <div class="col-12 text-center text-uppercase">
+                                  <h2 >Sản Phẩm Bán chạy nhất</h2>
+                              </div>
+
+
+                                
                                     
-                                        ?>
-                                            <div class="col-12 text-center text-uppercase">
-                                        <h2> <?php echo $row_cate['tenloai']; ?></h2>
                                     
-                                </div>
+                                        
+                                    
                                   
-                                <div class=" row">
+                                <div class=" row col-12">
                                     
                                   <?php
-                                  $sql_product = mysqli_query($mysqli,'SELECT * FROM sanpham  ORDER BY masp DESC ');
+                                  $sql_product = mysqli_query($mysqli,"SELECT  sanpham.masp,sanpham.tensp,sanpham.hinh, Sum(chitietdh.soluong) 
+                                  as SL, sanpham.gia
+                                  From sanpham , chitietdh 
+                                  Where sanpham.masp=chitietdh.masp
+                                  Group by sanpham.masp,sanpham.tensp,sanpham.gia
+                                  Order by Sum(chitietdh.Soluong) DESC LIMIT 4");
                                   while ($row_sp = mysqli_fetch_array($sql_product))
                                    {
-                                        if($row_sp['maloai']==$id_cat){
+                                    
                                    
 
                                     
@@ -60,7 +65,7 @@
                                         </div>
                                     </div>
                                    <?php }
-                                } ?>
+                                 ?>
                                     <!-- Product -->
                                     </div>
                                     <!-- Product -->
@@ -69,7 +74,7 @@
                                 </div>
                                    
                             </div>
-                                    <?php }?>
+                                
                         </div>
                                     
                     </div>

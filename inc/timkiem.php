@@ -1,20 +1,16 @@
  <?php
 
-if(isset($_GET['id']))
-{$id =$_GET['id'];
-}
-else
-{
-    $id = '';
-}
-$sql_cate =mysqli_query($mysqli,"SELECT * FROM loaisanpham,sanpham WHERE loaisanpham.maloai = sanpham.maloai AND sanpham.maloai='$id' ORDER BY sanpham.masp DESC");
-$sql_category =mysqli_query($mysqli,"SELECT * FROM loaisanpham,sanpham WHERE loaisanpham.maloai = sanpham.maloai AND sanpham.maloai='$id' ORDER BY sanpham.masp DESC");
+if(isset($_POST['search_submit']))
+{$key =addslashes($_POST['search_button']);
 
-$row_title =mysqli_fetch_array($sql_category);
- $tittle = $row_title['tenloai'];
 
-    
-?> 
+$sql_category = mysqli_query($mysqli,"SELECT * FROM sanpham  WHERE CONCAT(tensp,gia) LIKE '%$key%' ORDER BY masp DESC");
+
+
+ $tittle = $key;
+
+}
+?>
             
         <div class="col-12">
             <!-- Main Content -->
@@ -27,7 +23,7 @@ $row_title =mysqli_fetch_array($sql_category);
                         <div class="col-12 py-3">
                             <div class="row">
                                 <div class="col-12 text-center text-uppercase">
-                                    <h2><?php echo $tittle  ?></h2>
+                                    <h2>Từ khóa tìm kiếm:<?php echo $tittle  ?></h2>
                                 </div>
                             </div>
                             
@@ -35,7 +31,7 @@ $row_title =mysqli_fetch_array($sql_category);
                                     
                            <?php     
                                     
-                            while($row_sp =mysqli_fetch_array($sql_cate))
+                            while($row_sp =mysqli_fetch_array($sql_category))
                             {
                               ?>      
                                 
@@ -62,7 +58,7 @@ $row_title =mysqli_fetch_array($sql_category);
                                                     </span>
                                                 </div>
                                                 <div class="col-12 mb-3 align-self-end">
-                                                    <a href="?quanly=giohang&id=<?php echo $row_sp['masp']; ?> " class="btn btn-outline-dark" type="button"><i class="fas fa-cart-plus mr-2"></i>Thêm vào giỏ</a>
+                                                    <button class="btn btn-outline-dark" type="button"><i class="fas fa-cart-plus mr-2"></i>Thêm vào giỏ</button>
                                                 </div>
                                             </div>
                                         </div>
