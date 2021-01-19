@@ -113,7 +113,9 @@ include 'connect/connect.php';
                                                <?php
                                                while($row_category= mysqli_fetch_array($sql_category))
                                                {?>
-                                                <option class= "dropdown-item" href="category.php" ><?php echo $row_category['tenloai']?></option>
+                                                 <a class= "dropdown-item" href="index.php?quanly=gia100-500" ><?php echo $row_category['tenloai']?> </a>
+                                                 <a class= "dropdown-item" href="index.php?quanly=gia500-1000" ><?php echo $row_category['tenloai']?> </a>
+
                                                 <?php
                                                } 
                                                ?>

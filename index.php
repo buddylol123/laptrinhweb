@@ -33,6 +33,14 @@ elseif  ($tam == 'giohang')
 
     
 }
+elseif($tam =='gia500-1000')
+{
+    include 'inc/gia500-1000.php';
+}
+elseif($tam == 'gia100-500')
+{
+    include 'inc/gia100-500.php';
+}
 elseif($tam == 'xoa')
 {
     include 'xoa.php';
@@ -46,8 +54,9 @@ elseif($tam == 'thanhtoan')
 else
 
 {   include 'inc/spbnchay.php';
-    include 'inc/sanphammuanhieunhat.php';   
-    include 'inc/home.php';
+    include 'inc/sanphammuanhieunhat.php';
+    include 'inc/spthang11.php' ;
+    
 }
 
 ?>

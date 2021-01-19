@@ -1,10 +1,12 @@
 
 
+
+
                         <div class="row">
                             <div class="col-12 py-3">
                               <div class="row">
                               <div class="col-12 text-center text-uppercase">
-                                  <h2 >Sản phẩm bán chạy</h2>
+                                  <h2 >Sản phẩm tháng 11</h2>
                               </div>
 
 
@@ -17,7 +19,7 @@
                                 <div class=" row col-12">
                                     
                                   <?php
-                                  $sql_product = mysqli_query($mysqli,"SELECT * FROM sanpham  WHERE ngaynhap BETWEEN '2020/12/25' AND '2020/12/26' LIMIT 4");
+                                  $sql_product = mysqli_query($mysqli,"SELECT * FROM sanpham  WHERE ngaynhap BETWEEN '2020/11/1' AND '2020/11/30' LIMIT 4");
                                   while ($row_sp = mysqli_fetch_array($sql_product))
                                    {
                                     
